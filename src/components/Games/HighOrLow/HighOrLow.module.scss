@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  .frame {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #0085cc;
+    color: #fff;
+    &::selection {
+      background-color: none;
+      user-select: none;
+      color: red;
+    }
+  }
+}

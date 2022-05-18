@@ -6,9 +6,8 @@ interface Point {
   y: number;
 }
 
-function Controller() {
+function Controller({ returnSwipe }) {
   const [mouseDownPosition, setMouseDownPosition] = useState<Point>();
-  const [swipeState, setSwipeState] = useState<string>();
   const threshold: number = 50;
 
   function MouseDown(e) {
@@ -19,7 +18,7 @@ function Controller() {
 
     let state = mouseDirection < 0 ? "up" : "down";
     state = Math.abs(mouseDirection) < threshold ? "none" : state;
-    setSwipeState(state);
+    returnSwipe(state);
   }
 
   return (

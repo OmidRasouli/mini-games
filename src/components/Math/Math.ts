@@ -10,3 +10,8 @@ export class Random {
     return this.number;
   }
 }
+
+export function Clamp(value: number, min: number, max: number) {
+  if (min > max) [max, min] = [min, max];
+  return Math.min(max, Math.max(value, min));
+}

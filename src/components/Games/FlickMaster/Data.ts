@@ -1,10 +1,10 @@
-import Random from "../../Random/Random";
+import { Random } from "../../Math/Math";
 
 function Data(props: { count: number }): Array<Array<number>> {
-  const gameData = [[new Random(0, 4).number, new Random(0, 2).number]];
+  const gameData = [[new Random(0, 4).Random, new Random(0, 2).Random]];
   while (gameData.length < props.count) {
-    const direction = new Random(0, 4).number;
-    const revert = new Random(0, 2).number;
+    const direction = new Random(0, 4).Random;
+    const revert = new Random(0, 2).Random;
     gameData.push([direction, revert]);
     if (
       gameData[gameData.length - 1][0] === gameData[gameData.length - 2][0] &&

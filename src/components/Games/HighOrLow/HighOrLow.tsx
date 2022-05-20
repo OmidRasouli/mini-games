@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import SwipeDetector from "../../Controller/SwipeDetector/SwipeDetector";
 import Data from "./Data";
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion";
 import style from "./HighOrLow.module.scss";
 
 interface Animation {
@@ -11,9 +11,7 @@ interface Animation {
     scale?: Array<number>;
     opacity?: Array<number>;
   };
-  transition: {
-    duration: number;
-  };
+  transition: Transition;
 }
 
 function HighOrLow({ count = 0 }) {
@@ -83,10 +81,10 @@ function HighOrLow({ count = 0 }) {
         animate: {
           x: animation.animate.x,
           y: animation.animate.y,
-          scale: [1, 1.1, 1, 1.1, 1, 1.1, 1],
-          opacity: [1, 0.9, 1, 0.9, 1, 0.9, 1, 0.9, 1],
+          scale: [1, 1.1, 1],
+          opacity: [1, 0.9, 1],
         },
-        transition: { duration: 0.5 },
+        transition: { duration: 0.13, repeat: 3 },
       });
       setScore(Math.max(0, score - 10));
     }
@@ -102,7 +100,7 @@ function HighOrLow({ count = 0 }) {
       >
         {numberToShow}
       </motion.div>
-      <SwipeDetector returnSwipeCross={getSwipe} />
+      <SwipeDetector returnSwipeVertical={getSwipe} />
     </div>
   );
 }

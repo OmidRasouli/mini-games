@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Timer from "../components/Timer/Timer";
 import HighOrLow from "../components/Games/HighOrLow/HighOrLow";
+import FlickMaster from "../components/Games/FlickMaster/FlickMaster";
 
 function Home() {
   // const time = new Date();
@@ -13,7 +14,8 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Timer expiryTimestamp={time} /> */}
-      <HighOrLow count={60} />
+      {/* <HighOrLow count={60} /> */}
+      <FlickMaster count={60} />
     </div>
   );
 }

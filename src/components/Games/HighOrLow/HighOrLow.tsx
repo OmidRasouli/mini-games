@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Controller from "./Controller/Controller";
+import SwipeDetector from "../../Controller/SwipeDetector/SwipeDetector";
 import Data from "./Data";
 import { motion } from "framer-motion";
 import style from "./HighOrLow.module.scss";
@@ -102,7 +102,7 @@ function HighOrLow({ count = 0 }) {
       >
         {numberToShow}
       </motion.div>
-      <Controller returnSwipe={getSwipe} />
+      <SwipeDetector returnSwipeCross={getSwipe} />
     </div>
   );
 }

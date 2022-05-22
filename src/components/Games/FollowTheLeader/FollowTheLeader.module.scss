@@ -27,5 +27,8 @@
         user-select: none;
       }
     }
+    &.unfollowTheLeader > .button {
+      background-color: $pink-color;
+    }
   }
 }

@@ -4,6 +4,11 @@ import FlickMaster from "../components/Games/FlickMaster/FlickMaster";
 import FollowTheLeader from "../components/Games/FollowTheLeader/FollowTheLeader";
 import UnfollowTheLeader from "../components/Games/UnfollowTheLeader/UnfollowTheLeader";
 
+import {
+  ConditionalGameRender,
+  Condition,
+} from "../components/ConditionalRender/ConditionalGameRender";
+
 export function PlayGround() {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 10);
@@ -11,10 +16,12 @@ export function PlayGround() {
   return (
     <div>
       <Timer expiryTimestamp={time} />
-      <HighOrLow count={60} />
-      <FlickMaster count={60} />
-      <FollowTheLeader count={60} />
-      <UnfollowTheLeader count={60} />{" "}
+      <ConditionalGameRender game="FlickMaster">
+        <Condition game={HighOrLow} count={60} />
+        <Condition game={FlickMaster} count={60} />
+        <Condition game={FollowTheLeader} count={60} />
+        <Condition game={UnfollowTheLeader} count={60} />
+      </ConditionalGameRender>
     </div>
   );
 }

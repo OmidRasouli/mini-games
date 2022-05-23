@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
+import style from "./Timer.module.scss";
 
 function Timer({ expiryTimestamp }) {
   const { seconds, isRunning, start, pause, resume, restart } = useTimer({
@@ -10,7 +11,7 @@ function Timer({ expiryTimestamp }) {
     if (seconds == 0) pause();
   }, [pause, seconds]);
 
-  return <>{seconds}</>;
+  return <div>00:{`${seconds < 10 ? "0" : ""}${seconds}`}</div>;
 }
 
 export default Timer;

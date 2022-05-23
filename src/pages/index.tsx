@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PlayGround } from "./playground";
+import { PlayGround } from "../components/Playground/playground";
 
 function Home() {
   return (

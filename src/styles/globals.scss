@@ -6,8 +6,28 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fdf7ff+0,fdf7ff+51,fcdef6+100 */
+  background: #fdf7ff; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #fdf7ff 0%,
+    #fdf7ff 51%,
+    #fcdef6 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #fdf7ff 0%,
+    #fdf7ff 51%,
+    #fcdef6 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #fdf7ff 0%,
+    #fdf7ff 51%,
+    #fcdef6 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdf7ff', endColorstr='#fcdef6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 a {

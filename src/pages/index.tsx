@@ -1,7 +1,12 @@
+import { Home } from "../components/Home/Home";
 import { Layout } from "../components/Layout/Layout";
 
-function Home() {
-  return <Layout></Layout>;
+function Index() {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 }
 
-export default Home;
+export default Index;

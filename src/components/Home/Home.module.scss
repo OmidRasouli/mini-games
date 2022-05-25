@@ -1,116 +1,166 @@
-.welcome {
+.home {
   width: 100%;
-  margin-top: 50px;
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-  .omid {
-    color: #5aa9e6;
-    display: inline-flex;
-    .o {
-      animation: deform infinite;
-      animation-duration: 4s;
-      transform: scaleY(1);
-      transform-origin: 0 32px;
+  max-width: 500px;
 
-      @keyframes deform {
-        0%,
-        23%,
-        32%,
-        100% {
-          transform: scaleY(1);
+  .welcome {
+    width: 100%;
+    padding: 100px 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    .omid {
+      color: #5aa9e6;
+      display: inline-flex;
+      .o {
+        animation: deform infinite;
+        animation-duration: 4s;
+        transform: scaleY(1);
+        transform-origin: 0 32px;
+
+        @keyframes deform {
+          0%,
+          23%,
+          32%,
+          100% {
+            transform: scaleY(1);
+          }
+          26% {
+            transform: scaleY(0.5);
+          }
         }
-        26% {
-          transform: scaleY(0.5);
+      }
+      .i {
+        width: 7px;
+        height: 31px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transform-origin: bottom;
+        animation: fire 4s infinite;
+
+        @keyframes fire {
+          0%,
+          26%,
+          31%,
+          100% {
+            transform: scaleY(1);
+          }
+
+          28%,
+          30% {
+            transform: scaleY(0.5);
+          }
+        }
+
+        .rect {
+          width: 5px;
+          height: 20px;
+          background-color: #5aa9e6;
+          display: inline-block;
+          border-radius: 34%/9% 0 1px 0;
+        }
+        .dot {
+          width: 5px;
+          height: 6px;
+          background-color: #5aa9e6;
+          display: inline-block;
+          border-radius: 50% 35%;
+          margin-top: 2px;
+          animation: jumpping 4s infinite;
+          animation-timing-function: linear;
+          @keyframes jumpping {
+            0%,
+            3%,
+            100% {
+              transform: translate(0, 0);
+            }
+
+            8% {
+              transform: translate(-2px, -7px);
+            }
+            11% {
+              transform: translate(-4px, -8px);
+            }
+            15% {
+              transform: translate(-7px, -6px);
+            }
+            18% {
+              transform: translate(-15px, -17px);
+            }
+            20% {
+              transform: translate(-19px, -17px);
+            }
+            23% {
+              transform: translate(-29px, -6px);
+            }
+            25% {
+              transform: translate(-30px, 2px) scale(1);
+            }
+            27% {
+              transform: translate(-30px, 2px) scale(0);
+            }
+            28% {
+              transform: translate(0, 5px) scale(0);
+            }
+            30%,
+            34%,
+            38% {
+              transform: translate(0, 0) scale(1);
+            }
+            32%,
+            36% {
+              transform: translate(0, -5px) scale(1);
+            }
+            100% {
+              transform: translate(0, 0) scale(1);
+            }
+          }
         }
       }
     }
-    .i {
-      width: 7px;
-      height: 31px;
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      transform-origin: bottom;
-      animation: fire 4s infinite;
-
-      @keyframes fire {
+  }
+  .menu {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+    .button {
+      border: 2px solid #e49ebf;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1.2em;
+      font-weight: 500;
+      min-width: 100px;
+      text-align: center;
+      cursor: pointer;
+      color: #fc6392;
+      transition: all 0.2s;
+      &:hover {
+        animation: shine 1s linear infinite;
+        animation-delay: 0.2s;
+        box-shadow: 0 0 4px 0 #e49ebf;
+        padding: 9px 10px 11px;
+      }
+      @keyframes shine {
         0%,
-        26%,
-        31%,
         100% {
-          transform: scaleY(1);
+          box-shadow: 0 0 4px 0 #e49ebf;
+          padding: 9px 10px 11px;
         }
-
-        28%,
-        30% {
-          transform: scaleY(0.5);
+        25% {
+          box-shadow: 0 0 3px 0 #e49ebf;
+          padding: 10px;
         }
-      }
-
-      .rect {
-        width: 5px;
-        height: 20px;
-        background-color: #5aa9e6;
-        display: inline-block;
-        border-radius: 34%/9% 0 1px 0;
-      }
-      .dot {
-        width: 5px;
-        height: 6px;
-        background-color: #5aa9e6;
-        display: inline-block;
-        border-radius: 50% 35%;
-        margin-top: 2px;
-        animation: jumpping 4s infinite;
-        animation-timing-function: linear;
-        @keyframes jumpping {
-          0%,
-          3%,
-          100% {
-            transform: translate(0, 0);
-          }
-
-          8% {
-            transform: translate(-2px, -7px);
-          }
-          11% {
-            transform: translate(-4px, -8px);
-          }
-          15% {
-            transform: translate(-7px, -6px);
-          }
-          18% {
-            transform: translate(-15px, -17px);
-          }
-          20% {
-            transform: translate(-19px, -17px);
-          }
-          23% {
-            transform: translate(-29px, -6px);
-          }
-          25% {
-            transform: translate(-30px, 2px) scale(1);
-          }
-          27% {
-            transform: translate(-30px, 2px) scale(0);
-          }
-          28% {
-            transform: translate(0, 5px) scale(0);
-          }
-          30%,
-          34%,
-          38% {
-            transform: translate(0, 0) scale(1);
-          }
-          32%,
-          36% {
-            transform: translate(0, -5px) scale(1);
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
-          }
+        50% {
+          box-shadow: 0 0 10px 0 #e49ebf;
+          padding: 9px 10px 11px;
+        }
+        75% {
+          box-shadow: 0 0 8px 0 #e49ebf;
+          padding: 8px 10px 12px;
         }
       }
     }

@@ -1,7 +1,7 @@
 import { Layout } from "../../components/Layout/Layout";
 import { Menu } from "../../components/Menu/Menu";
 
-export function MainMenu() {
+export default function MainMenu() {
   return (
     <Layout>
       <Menu />

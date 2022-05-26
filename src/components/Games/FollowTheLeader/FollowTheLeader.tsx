@@ -10,7 +10,7 @@ interface Animation {
   transition: Transition;
 }
 
-function FollowTheLeader({ count }) {
+function FollowTheLeader({ count, checkAnswer, AnswerResult }) {
   const [gameData, setGameData] = useState<Array<Array<number>>>(
     Data({ count })
   );
@@ -53,6 +53,8 @@ function FollowTheLeader({ count }) {
       setAnimation(animationList);
       if (gameData[turn].length === buttonIndexCache) {
         setTurn(turn + 1);
+        checkAnswer(10);
+        AnswerResult(1);
         setButtonIndex(0);
       }
     } else {
@@ -70,6 +72,8 @@ function FollowTheLeader({ count }) {
       }
       setAnimation(animationList);
       setButtonIndex(0);
+      checkAnswer(-10);
+      AnswerResult(-1);
       setTimeout(() => {
         const animationReplay: Array<Animation> = new Array(9);
         for (let i = 0; i < 9; i++) {

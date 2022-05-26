@@ -14,7 +14,7 @@ interface Animation {
   transition: Transition;
 }
 
-function FlickMaster({ count }) {
+function FlickMaster({ count, checkAnswer, AnswerResult }) {
   const [gameData, setGameData] = useState<Array<Array<number>>>(
     Data({ count })
   );
@@ -37,7 +37,11 @@ function FlickMaster({ count }) {
 
     if (Validation(swipeState)) {
       setTurn(turn + 1);
+      checkAnswer(10);
+      AnswerResult(1);
     } else {
+      checkAnswer(-10);
+      AnswerResult(-1);
       setAnimation({
         animate: {
           rotate: gameData[turn][0] * 90,

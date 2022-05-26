@@ -14,9 +14,8 @@ interface Animation {
   transition: Transition;
 }
 
-function HighOrLow({ count = 0 }) {
+function HighOrLow({ count = 0, checkAnswer, AnswerResult }) {
   const [gameData, setGameData] = useState<Array<number>>(Data({ count }));
-  const [score, setScore] = useState<number>(0);
   const [turn, setTurn] = useState<number>(1);
   const divMotion = useRef<HTMLInputElement>();
   const [numberToShow, setNumberToShow] = useState<number>(0);
@@ -54,7 +53,8 @@ function HighOrLow({ count = 0 }) {
       (swipeState === "up" && gameData[turn] > gameData[turn - 1]) ||
       (swipeState === "down" && gameData[turn] < gameData[turn - 1])
     ) {
-      setScore(score + 10);
+      checkAnswer(10);
+      AnswerResult(1);
       let turnCache = turn;
       setTurn(turn + 1);
       console.log(gameData);
@@ -86,7 +86,8 @@ function HighOrLow({ count = 0 }) {
         },
         transition: { duration: 0.13, repeat: 3 },
       });
-      setScore(Math.max(0, score - 10));
+      checkAnswer(-10);
+      AnswerResult(-1);
     }
   };
 

@@ -40,6 +40,7 @@ function UnfollowTheLeader({ count }) {
   }, [turn]);
 
   const UnfollowButton = (order) => {
+    if (!gameData[turn].includes(order)) return;
     if (gameData[turn][buttonIndex] === order) {
       let buttonIndexCache = buttonIndex - 1;
       setButtonIndex(buttonIndexCache);
@@ -52,7 +53,7 @@ function UnfollowTheLeader({ count }) {
         },
       };
       setAnimation(animationList);
-      if (gameData[turn].length === buttonIndexCache) {
+      if (buttonIndexCache === 0) {
         setButtonIndex(gameData[turn + 1].length - 1);
         setTurn(turn + 1);
       }

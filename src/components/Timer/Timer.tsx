@@ -1,13 +1,11 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
 import style from "./Timer.module.scss";
 
-function Timer({ expiryTimestamp }) {
-  const router = useRouter();
+function Timer({ expiryTimestamp, onExpire }) {
   const { seconds, isRunning, start, pause, resume, restart } = useTimer({
     expiryTimestamp,
-    onExpire: () => router.push("/"),
+    onExpire: () => onExpire(),
   });
   useEffect(() => {
     if (seconds == 0) pause();

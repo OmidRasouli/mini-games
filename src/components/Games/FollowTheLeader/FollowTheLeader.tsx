@@ -17,9 +17,9 @@ function FollowTheLeader({ count }) {
   const [turn, setTurn] = useState<number>(0);
   const [animation, setAnimation] = useState<Array<Animation>>(new Array(9));
   const [buttonIndex, setButtonIndex] = useState<number>(0);
-  let animationDelay = turn === 0 ? 0.5 : 0.2;
-  let animationGap = 0.2;
-  let animationDuration = 0.3;
+  let animationDelay = turn === 0 ? 0.2 : 0.1;
+  let animationGap = 0.15;
+  let animationDuration = 0.2;
 
   useEffect(() => {
     setTimeout(() => {

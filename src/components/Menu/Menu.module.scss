@@ -1,0 +1,47 @@
+.gameContainer {
+  padding: 100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+
+  .game {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .gameName {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    &.flickMaster {
+      .icon {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    &.followTheLeader {
+      .icon {
+      }
+    }
+
+    &.highOrLow {
+      .icon {
+      }
+    }
+
+    &.unfollowTheLeader {
+      .icon {
+      }
+    }
+  }
+}

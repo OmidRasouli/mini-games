@@ -9,12 +9,22 @@ import style from "./playground.module.scss";
 export function PlayGround(props: { game: string }) {
   const [choosenGame] = useState<string>(props.game);
   const [score, setScore] = useState<number>(0);
+  const [correct, setCorrect] = useState<number>(0);
+  const [wrong, setWrong] = useState<number>(0);
   const time = new Date();
   time.setSeconds(time.getSeconds() + 20);
 
   const checkAnswer = (getScore: number) => {
     setScore(getScore + score);
   };
+  const AnswerResult = (result: number) => {
+    if (result === 1) {
+      setCorrect(correct + 1);
+    } else if (result === -1) {
+      setWrong(wrong + 1);
+    }
+  };
+
   function RenderGame(game: string) {
     switch (game) {
       case "HighOrLow":
@@ -22,6 +32,7 @@ export function PlayGround(props: { game: string }) {
           <HighOrLow
             count={60}
             checkAnswer={checkAnswer}
+            AnswerResult={AnswerResult}
           />
         );
       case "FlickMaster":
@@ -29,6 +40,7 @@ export function PlayGround(props: { game: string }) {
           <FlickMaster
             count={60}
             checkAnswer={checkAnswer}
+            AnswerResult={AnswerResult}
           />
         );
       case "FollowTheLeader":
@@ -36,6 +48,7 @@ export function PlayGround(props: { game: string }) {
           <FollowTheLeader
             count={60}
             checkAnswer={checkAnswer}
+            AnswerResult={AnswerResult}
           />
         );
       case "UnfollowTheLeader":
@@ -43,6 +56,7 @@ export function PlayGround(props: { game: string }) {
           <UnfollowTheLeader
             count={60}
             checkAnswer={checkAnswer}
+            AnswerResult={AnswerResult}
           />
         );
 

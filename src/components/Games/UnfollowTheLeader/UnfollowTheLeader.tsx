@@ -19,9 +19,9 @@ function UnfollowTheLeader({ count }) {
   const [buttonIndex, setButtonIndex] = useState<number>(
     gameData[turn].length - 1
   );
-  let animationDelay = turn === 0 ? 0.5 : 0.2;
-  let animationGap = 0.2;
-  let animationDuration = 0.3;
+  let animationDelay = turn === 0 ? 0.2 : 0.1;
+  let animationGap = 0.15;
+  let animationDuration = 0.2;
 
   useEffect(() => {
     setTimeout(() => {
@@ -40,6 +40,7 @@ function UnfollowTheLeader({ count }) {
   }, [turn]);
 
   const UnfollowButton = (order) => {
+    if (!gameData[turn].includes(order)) return;
     if (gameData[turn][buttonIndex] === order) {
       let buttonIndexCache = buttonIndex - 1;
       setButtonIndex(buttonIndexCache);
@@ -52,7 +53,7 @@ function UnfollowTheLeader({ count }) {
         },
       };
       setAnimation(animationList);
-      if (gameData[turn].length === buttonIndexCache) {
+      if (buttonIndexCache === 0) {
         setButtonIndex(gameData[turn + 1].length - 1);
         setTurn(turn + 1);
       }

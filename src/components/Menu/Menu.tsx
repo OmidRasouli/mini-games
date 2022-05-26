@@ -1,4 +1,4 @@
-import Link from "next/link";
+import style from "./Menu.module.scss";
 
 export function Menu() {
   const games = [

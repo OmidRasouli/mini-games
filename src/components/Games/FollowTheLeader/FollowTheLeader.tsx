@@ -38,6 +38,7 @@ function FollowTheLeader({ count }) {
   }, [turn]);
 
   const FollowButton = (order) => {
+    if (!gameData[turn].includes(order)) return;
     if (gameData[turn][buttonIndex] === order) {
       let buttonIndexCache = buttonIndex + 1;
       setButtonIndex(buttonIndexCache);

@@ -23,16 +23,16 @@ export function Menu() {
     },
   ];
   return (
-    <div>
-      <Link href={""}>
-        <a>Play</a>
-      </Link>
-      <Link href={""}>
-        <a>Help</a>
-      </Link>
-      <Link href={""}>
-        <a>About</a>
-      </Link>
+    <div className={style.gameContainer}>
+      {games.map((game) => (
+        <div
+          className={`${style.game} ${style[game.class]}`}
+          key={game.key}
+        >
+          <div className={style.icon}></div>
+          <div className={style.gameName}>{game.name}</div>
+        </div>
+      ))}
     </div>
   );
 }

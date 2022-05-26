@@ -11,7 +11,11 @@ function Timer({ expiryTimestamp }) {
     if (seconds == 0) pause();
   }, [pause, seconds]);
 
-  return <div>00:{`${seconds < 10 ? "0" : ""}${seconds}`}</div>;
+  return (
+    <div className={style.timer}>
+      00:{`${seconds < 10 ? "0" : ""}${seconds}`}
+    </div>
+  );
 }
 
 export default Timer;

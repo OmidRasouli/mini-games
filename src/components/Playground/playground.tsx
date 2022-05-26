@@ -9,7 +9,7 @@ import style from "./playground.module.scss";
 export function PlayGround(props: { game: string }) {
   const [choosenGame] = useState<string>(props.game);
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 10);
+  time.setSeconds(time.getSeconds() + 20);
 
   function RenderGame(game: string) {
     switch (game) {

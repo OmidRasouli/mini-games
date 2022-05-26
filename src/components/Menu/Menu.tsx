@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import style from "./Menu.module.scss";
 
@@ -9,19 +10,28 @@ export function Menu() {
       name: "Flick Master",
       id: "FlickMaster",
       class: "flickMaster",
+      img: "/icons/FlickMaster.png",
     },
     {
       key: "ftl",
       name: "Follow The Leader",
       id: "FollowTheLeader",
       class: "followTheLeader",
+      img: "/icons/FollowTheLeader.png",
     },
-    { key: "hol", name: "High or Low", id: "HighOrLow", class: "highOrLow" },
+    {
+      key: "hol",
+      name: "High or Low",
+      id: "HighOrLow",
+      class: "highOrLow",
+      img: "/icons/HighOrLow.png",
+    },
     {
       key: "uftl",
       name: "Unfollow the Leader",
-      id: "UnfollowtheLeader",
+      id: "UnfollowTheLeader",
       class: "unfollowTheLeader",
+      img: "/icons/UnfollowTheLeader.png",
     },
   ];
 
@@ -37,7 +47,9 @@ export function Menu() {
           key={game.key}
           onClick={() => StartGame(game.id)}
         >
-          <div className={style.icon}></div>
+          <div className={style.icon}>
+            <Image src={game.img} alt={game.name} width={100} height={100} />
+          </div>
           <div className={style.gameName}>{game.name}</div>
         </div>
       ))}

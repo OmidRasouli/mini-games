@@ -29,10 +29,24 @@ export function PlayGround(props: { game: string }) {
   };
 
   const FinishGame = () => {
+    SaveResult();
     router.push("/score-board");
   };
 
-  function RenderGame(game: string) {
+  const SaveResult = () => {
+    const highScore: number =
+      localStorage.getItem("highScore") !== null
+        ? parseInt(localStorage.getItem("highScore"))
+        : 0;
+
+    if (highScore < score) {
+      localStorage.setItem("highScore", `${score}`);
+      localStorage.setItem("wrongAnswers", `${wrong}`);
+      localStorage.setItem("correctAnswers", `${correct}`);
+    }
+  };
+
+  const RenderGame = (game: string) => {
     switch (game) {
       case "HighOrLow":
         return (
@@ -70,12 +84,11 @@ export function PlayGround(props: { game: string }) {
       default:
         return <></>;
     }
-  }
+  };
 
   return (
     <div className={style.playground}>
       <Timer expiryTimestamp={time} onExpire={FinishGame} />
-      <div>score: {score}</div>
       {RenderGame(choosenGame)}
     </div>
   );

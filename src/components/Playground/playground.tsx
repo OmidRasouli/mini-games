@@ -30,19 +30,23 @@ export function PlayGround(props: { game: string }) {
 
   const FinishGame = () => {
     SaveResult();
-    router.push("/score-board");
+    router.push(`/score-board/${choosenGame}`);
   };
 
   const SaveResult = () => {
     const highScore: number =
-      localStorage.getItem("highScore") !== null
-        ? parseInt(localStorage.getItem("highScore"))
+      localStorage.getItem(`highScore${choosenGame}`) !== null
+        ? parseInt(localStorage.getItem(`highScore${choosenGame}`))
         : 0;
 
+    localStorage.setItem(`currentScore${choosenGame}`, `${score}`);
+    localStorage.setItem(`currentWrongAnswers${choosenGame}`, `${wrong}`);
+    localStorage.setItem(`currentCorrectAnswers${choosenGame}`, `${correct}`);
+
     if (highScore < score) {
-      localStorage.setItem("highScore", `${score}`);
-      localStorage.setItem("wrongAnswers", `${wrong}`);
-      localStorage.setItem("correctAnswers", `${correct}`);
+      localStorage.setItem(`highScore${choosenGame}`, `${score}`);
+      localStorage.setItem(`wrongAnswers${choosenGame}`, `${wrong}`);
+      localStorage.setItem(`correctAnswers${choosenGame}`, `${correct}`);
     }
   };
 

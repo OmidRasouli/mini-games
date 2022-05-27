@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.navBar {
+  width: 50px;
+  position: fixed;
+  height: 50px;
+  left: 20px;
+  top: 20px;
+  z-index: 99999;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 700;
+    color: $pink-color;
+    transition: all 300ms;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

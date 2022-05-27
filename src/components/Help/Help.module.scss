@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 80px 60px;
+  .section {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    img {
+      object-fit: contain;
+    }
+    figure {
+      width: 80%;
+    }
+    .title {
+      font-size: 1.7em;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .description {
+      font-weight: 500;
+      font-size: 1.4em;
+    }
+  }
+}

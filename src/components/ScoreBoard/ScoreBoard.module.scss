@@ -1,0 +1,50 @@
+@import "../../styles/variables.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & > div {
+    font-size: 3em;
+    font-weight: 700;
+    span {
+      padding: 10px;
+      width: 100px;
+      text-align: left;
+      display: inline-block;
+
+      .faStar {
+        color: $yellow-color;
+        margin-bottom: -8px;
+      }
+      .faCheck {
+        color: $blue-color;
+        margin-bottom: -8px;
+      }
+      .faTimes {
+        color: $pink-color;
+        margin-bottom: -8px;
+      }
+    }
+    &.newHighScore {
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      .faMoon {
+        color: $yellow-color;
+        margin: 0 20px -8px;
+      }
+    }
+    &.highScore {
+      font-weight: 600;
+      font-size: 1.4em;
+      margin-top: 50px;
+      display: flex;
+      gap: 20px;
+      div {
+      }
+    }
+  }
+}

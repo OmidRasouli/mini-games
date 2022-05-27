@@ -29,10 +29,28 @@ export function PlayGround(props: { game: string }) {
   };
 
   const FinishGame = () => {
-    router.push("/score-board");
+    SaveResult();
+    router.push(`/score-board/${choosenGame}`);
   };
 
-  function RenderGame(game: string) {
+  const SaveResult = () => {
+    const highScore: number =
+      localStorage.getItem(`highScore${choosenGame}`) !== null
+        ? parseInt(localStorage.getItem(`highScore${choosenGame}`))
+        : 0;
+
+    localStorage.setItem(`currentScore${choosenGame}`, `${score}`);
+    localStorage.setItem(`currentWrongAnswers${choosenGame}`, `${wrong}`);
+    localStorage.setItem(`currentCorrectAnswers${choosenGame}`, `${correct}`);
+
+    if (highScore < score) {
+      localStorage.setItem(`highScore${choosenGame}`, `${score}`);
+      localStorage.setItem(`wrongAnswers${choosenGame}`, `${wrong}`);
+      localStorage.setItem(`correctAnswers${choosenGame}`, `${correct}`);
+    }
+  };
+
+  const RenderGame = (game: string) => {
     switch (game) {
       case "HighOrLow":
         return (
@@ -70,12 +88,11 @@ export function PlayGround(props: { game: string }) {
       default:
         return <></>;
     }
-  }
+  };
 
   return (
     <div className={style.playground}>
       <Timer expiryTimestamp={time} onExpire={FinishGame} />
-      <div>score: {score}</div>
       {RenderGame(choosenGame)}
     </div>
   );

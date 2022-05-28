@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 import style from "./Menu.module.scss";
 
 export function Menu() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const games = [
     {
       key: "fkm",
@@ -36,7 +35,7 @@ export function Menu() {
   ];
 
   const StartGame = (game: string) => {
-    router.push(`playground/${game}`);
+    navigate(`/playground/${game}`);
   };
 
   return (
@@ -48,7 +47,7 @@ export function Menu() {
           onClick={() => StartGame(game.id)}
         >
           <div className={style.icon}>
-            <Image src={game.img} alt={game.name} width={100} height={100} />
+            <img src={game.img} alt={game.name} width={100} height={100} />
           </div>
           <div className={style.gameName}>{game.name}</div>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import style from "./SwipeDetector.module.scss";
 
 interface Point {
@@ -13,13 +13,16 @@ interface CallBackFunctions {
 }
 
 function SwipeDetector(props: CallBackFunctions) {
-  const [mouseDownPosition, setMouseDownPosition] = useState<Point>();
+  const [mouseDownPosition, setMouseDownPosition] = useState<Point>({
+    x: 0,
+    y: 0,
+  });
   const threshold: number = 50;
 
-  function MouseDown(e) {
+  function MouseDown(e: MouseEvent<HTMLDivElement>) {
     setMouseDownPosition({ x: e.clientX, y: e.clientY });
   }
-  function MouseUp(e) {
+  function MouseUp(e: MouseEvent<HTMLDivElement>) {
     const verticalDirection = e.clientY - mouseDownPosition.y;
     const horizontalDirection = e.clientX - mouseDownPosition.x;
 

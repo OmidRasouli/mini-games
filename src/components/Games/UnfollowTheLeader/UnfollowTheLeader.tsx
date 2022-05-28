@@ -5,12 +5,18 @@ import style from "../FollowTheLeader/FollowTheLeader.module.scss";
 
 interface Animation {
   animate: {
-    opacity?: Array<number>;
+    opacity: Array<number>;
   };
   transition: Transition;
 }
 
-function UnfollowTheLeader({ count, checkAnswer, AnswerResult }) {
+interface Parameters {
+  count: number;
+  CheckAnswer: Function;
+  AnswerResult: Function;
+}
+
+function UnfollowTheLeader({ count, CheckAnswer, AnswerResult }: Parameters) {
   const [gameData, setGameData] = useState<Array<Array<number>>>(
     Data({ count })
   );
@@ -39,7 +45,7 @@ function UnfollowTheLeader({ count, checkAnswer, AnswerResult }) {
     }, 500);
   }, [turn]);
 
-  const UnfollowButton = (order) => {
+  const UnfollowButton = (order: number) => {
     if (!gameData[turn].includes(order)) return;
     if (gameData[turn][buttonIndex] === order) {
       let buttonIndexCache = buttonIndex - 1;
@@ -56,7 +62,7 @@ function UnfollowTheLeader({ count, checkAnswer, AnswerResult }) {
       if (buttonIndexCache === 0) {
         setButtonIndex(gameData[turn + 1].length - 1);
         setTurn(turn + 1);
-        checkAnswer(10);
+        CheckAnswer(10);
         AnswerResult(1);
       }
     } else {
@@ -74,7 +80,7 @@ function UnfollowTheLeader({ count, checkAnswer, AnswerResult }) {
       }
       setAnimation(animationList);
       setButtonIndex(gameData[turn].length - 1);
-      checkAnswer(-10);
+      CheckAnswer(-10);
       AnswerResult(-1);
       setTimeout(() => {
         const animationReplay: Array<Animation> = new Array(9);

@@ -1,6 +1,6 @@
 import style from "./Home.module.scss";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export function Home() {
   return (
@@ -18,46 +18,38 @@ export function Home() {
         &apos;s Playground!
       </div>
       <div className={style.menu}>
-        <Link href="/menu">
-          <motion.a
-            className={style.button}
-            animate={{ x: [-40, 0], opacity: [0, 1] }}
-            initial={{ x: -40, opacity: 0 }}
-            transition={{ duration: 0.1, ease: "easeInOut", delay: 0.5 }}
-          >
-            Play
-          </motion.a>
-        </Link>
-        <Link href="/help">
-          <motion.a
-            className={style.button}
-            animate={{ x: [40, 0], opacity: [0, 1] }}
-            initial={{ x: 40, opacity: 0 }}
-            transition={{ duration: 0.1, ease: "easeInOut", delay: 0.6 }}
-          >
-            Help
-          </motion.a>
-        </Link>
-        <Link href="/about">
-          <motion.a
-            className={style.button}
-            animate={{ x: [-40, 0], opacity: [0, 1] }}
-            initial={{ x: -40, opacity: 0 }}
-            transition={{ duration: 0.1, ease: "easeInOut", delay: 0.7 }}
-          >
-            About
-          </motion.a>
-        </Link>
-        <Link href="/quit">
-          <motion.a
-            className={style.button}
-            animate={{ x: [40, 0], opacity: [0, 1] }}
-            initial={{ x: 40, opacity: 0 }}
-            transition={{ duration: 0.1, ease: "easeInOut", delay: 0.8 }}
-          >
-            Quit
-          </motion.a>
-        </Link>
+        <motion.div
+          className={style.button}
+          animate={{ x: [-40, 0], opacity: [0, 1] }}
+          initial={{ x: -40, opacity: 0 }}
+          transition={{ duration: 0.1, ease: "easeInOut", delay: 0.5 }}
+        >
+          <Link to={"/menu"}>Play</Link>
+        </motion.div>
+        <motion.div
+          className={style.button}
+          animate={{ x: [40, 0], opacity: [0, 1] }}
+          initial={{ x: 40, opacity: 0 }}
+          transition={{ duration: 0.1, ease: "easeInOut", delay: 0.6 }}
+        >
+          <Link to={"/help"}>Help</Link>
+        </motion.div>
+        <motion.div
+          className={style.button}
+          animate={{ x: [-40, 0], opacity: [0, 1] }}
+          initial={{ x: -40, opacity: 0 }}
+          transition={{ duration: 0.1, ease: "easeInOut", delay: 0.7 }}
+        >
+          <Link to={"/about"}>About</Link>
+        </motion.div>
+        <motion.div
+          className={style.button}
+          animate={{ x: [40, 0], opacity: [0, 1] }}
+          initial={{ x: 40, opacity: 0 }}
+          transition={{ duration: 0.1, ease: "easeInOut", delay: 0.8 }}
+        >
+          <Link to={"/quit"}>Quit</Link>
+        </motion.div>
       </div>
     </div>
   );

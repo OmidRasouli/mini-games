@@ -5,12 +5,18 @@ import style from "./FollowTheLeader.module.scss";
 
 interface Animation {
   animate: {
-    opacity?: Array<number>;
+    opacity: Array<number>;
   };
   transition: Transition;
 }
 
-function FollowTheLeader({ count, checkAnswer, AnswerResult }) {
+interface Parameters {
+  count: number;
+  CheckAnswer: Function;
+  AnswerResult: Function;
+}
+
+function FollowTheLeader({ count, CheckAnswer, AnswerResult }: Parameters) {
   const [gameData, setGameData] = useState<Array<Array<number>>>(
     Data({ count })
   );
@@ -37,14 +43,14 @@ function FollowTheLeader({ count, checkAnswer, AnswerResult }) {
     }, 500);
   }, [turn]);
 
-  const FollowButton = (order) => {
+  const FollowButton = (order: number) => {
     if (!gameData[turn].includes(order)) return;
     if (gameData[turn][buttonIndex] === order) {
       let buttonIndexCache = buttonIndex + 1;
       setButtonIndex(buttonIndexCache);
       const animationList = animation;
       animationList[order] = {
-        animate: { opacity: [animation[order].animate.opacity[1], 0] },
+        animate: { opacity: [animation[order].animate.opacity[1] ?? 0, 0] },
         transition: {
           delay: 0,
           duration: animationDuration,
@@ -53,7 +59,7 @@ function FollowTheLeader({ count, checkAnswer, AnswerResult }) {
       setAnimation(animationList);
       if (gameData[turn].length === buttonIndexCache) {
         setTurn(turn + 1);
-        checkAnswer(10);
+        CheckAnswer(10);
         AnswerResult(1);
         setButtonIndex(0);
       }
@@ -72,7 +78,7 @@ function FollowTheLeader({ count, checkAnswer, AnswerResult }) {
       }
       setAnimation(animationList);
       setButtonIndex(0);
-      checkAnswer(-10);
+      CheckAnswer(-10);
       AnswerResult(-1);
       setTimeout(() => {
         const animationReplay: Array<Animation> = new Array(9);

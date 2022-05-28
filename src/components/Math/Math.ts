@@ -3,7 +3,7 @@ export class Random {
   constructor(max: number);
   constructor(min: number, max: number);
   constructor(min?: number, max?: number) {
-    this.number = Math.floor(Math.random() * max + (min ?? 0));
+    this.number = Math.floor(Math.random() * (max ?? 1) + (min ?? 0));
   }
 
   public get Random(): number {

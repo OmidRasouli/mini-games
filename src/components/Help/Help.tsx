@@ -1,11 +1,10 @@
-import Image from "next/image";
 import style from "./Help.module.scss";
 
 export default function Help() {
   return (
     <div className={style.container}>
       <div className={style.section}>
-        <Image
+        <img
           src={"/icons/FlickMaster.png"}
           width={100}
           height={100}
@@ -20,7 +19,7 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
+        <img
           src={"/icons/HighOrLow.png"}
           width={100}
           height={100}
@@ -34,7 +33,7 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
+        <img
           src={"/icons/FollowTheLeader.png"}
           width={100}
           height={100}
@@ -46,7 +45,7 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
+        <img
           src={"/icons/UnfollowTheLeader.png"}
           width={100}
           height={100}

@@ -14,7 +14,13 @@ interface Animation {
   transition: Transition;
 }
 
-function FlickMaster({ count, checkAnswer, AnswerResult }) {
+interface Parameters {
+  count: number;
+  CheckAnswer: Function;
+  AnswerResult: Function;
+}
+
+function FlickMaster({ count, CheckAnswer, AnswerResult }: Parameters) {
   const [gameData, setGameData] = useState<Array<Array<number>>>(
     Data({ count })
   );
@@ -37,10 +43,10 @@ function FlickMaster({ count, checkAnswer, AnswerResult }) {
 
     if (Validation(swipeState)) {
       setTurn(turn + 1);
-      checkAnswer(10);
+      CheckAnswer(10);
       AnswerResult(1);
     } else {
-      checkAnswer(-10);
+      CheckAnswer(-10);
       AnswerResult(-1);
       setAnimation({
         animate: {

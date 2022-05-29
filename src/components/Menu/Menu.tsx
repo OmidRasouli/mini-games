@@ -1,42 +1,41 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 import style from "./Menu.module.scss";
 
 export function Menu() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const games = [
     {
       key: "fkm",
       name: "Flick Master",
       id: "FlickMaster",
       class: "flickMaster",
-      img: "/icons/FlickMaster.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/FlickMaster.png`,
     },
     {
       key: "ftl",
       name: "Follow The Leader",
       id: "FollowTheLeader",
       class: "followTheLeader",
-      img: "/icons/FollowTheLeader.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/FollowTheLeader.png`,
     },
     {
       key: "hol",
       name: "High or Low",
       id: "HighOrLow",
       class: "highOrLow",
-      img: "/icons/HighOrLow.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/HighOrLow.png`,
     },
     {
       key: "uftl",
       name: "Unfollow the Leader",
       id: "UnfollowTheLeader",
       class: "unfollowTheLeader",
-      img: "/icons/UnfollowTheLeader.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/UnfollowTheLeader.png`,
     },
   ];
 
   const StartGame = (game: string) => {
-    router.push(`playground/${game}`);
+    navigate(`/playground/${game}`);
   };
 
   return (
@@ -48,7 +47,7 @@ export function Menu() {
           onClick={() => StartGame(game.id)}
         >
           <div className={style.icon}>
-            <Image src={game.img} alt={game.name} width={100} height={100} />
+            <img src={game.img} alt={game.name} width={100} height={100} />
           </div>
           <div className={style.gameName}>{game.name}</div>
         </div>

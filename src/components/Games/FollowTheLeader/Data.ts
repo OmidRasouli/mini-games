@@ -1,9 +1,9 @@
 import { Clamp, Random } from "../../Math/Math";
 
-export function Data({ count }) {
+export function Data(props: { count: number }) {
   const gameData: Array<Array<number>> = [];
   let buttonsCount = 3;
-  for (let i = 1; i < count + 1; i++) {
+  for (let i = 1; i < props.count + 1; i++) {
     const level: Set<number> = new Set();
     while (level.size < buttonsCount) {
       level.add(new Random(0, 9).Random);

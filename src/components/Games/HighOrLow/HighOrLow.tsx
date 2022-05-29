@@ -14,15 +14,21 @@ interface Animation {
   transition: Transition;
 }
 
-function HighOrLow({ count = 0, checkAnswer, AnswerResult }) {
+interface Parameters {
+  count: number;
+  CheckAnswer: Function;
+  AnswerResult: Function;
+}
+
+function HighOrLow({ count = 0, CheckAnswer, AnswerResult }: Parameters) {
   const [gameData, setGameData] = useState<Array<number>>(Data({ count }));
   const [turn, setTurn] = useState<number>(1);
-  const divMotion = useRef<HTMLInputElement>();
+  const divMotion = useRef<HTMLDivElement>(null);
   const [numberToShow, setNumberToShow] = useState<number>(0);
   const [animation, setAnimation] = useState<Animation>();
 
   const CenterHorizontal = () => {
-    const widthElement = divMotion.current.clientWidth;
+    const widthElement = divMotion.current?.clientWidth ?? 0;
     return (screen.width - widthElement) * 0.5;
   };
 
@@ -53,7 +59,7 @@ function HighOrLow({ count = 0, checkAnswer, AnswerResult }) {
       (swipeState === "up" && gameData[turn] > gameData[turn - 1]) ||
       (swipeState === "down" && gameData[turn] < gameData[turn - 1])
     ) {
-      checkAnswer(10);
+      CheckAnswer(10);
       AnswerResult(1);
       let turnCache = turn;
       setTurn(turn + 1);
@@ -79,14 +85,14 @@ function HighOrLow({ count = 0, checkAnswer, AnswerResult }) {
     } else {
       setAnimation({
         animate: {
-          x: animation.animate.x,
-          y: animation.animate.y,
+          x: animation?.animate.x,
+          y: animation?.animate.y,
           scale: [1, 1.1, 1],
           opacity: [1, 0.9, 1],
         },
         transition: { duration: 0.13, repeat: 3 },
       });
-      checkAnswer(-10);
+      CheckAnswer(-10);
       AnswerResult(-1);
     }
   };

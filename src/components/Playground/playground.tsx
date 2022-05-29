@@ -5,14 +5,14 @@ import FlickMaster from "../Games/FlickMaster/FlickMaster";
 import FollowTheLeader from "../Games/FollowTheLeader/FollowTheLeader";
 import UnfollowTheLeader from "../Games/UnfollowTheLeader/UnfollowTheLeader";
 import style from "./playground.module.scss";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
 export function PlayGround(props: { game: string }) {
-  const router = useRouter();
   const [choosenGame] = useState<string>(props.game);
   const [score, setScore] = useState<number>(0);
   const [correct, setCorrect] = useState<number>(0);
   const [wrong, setWrong] = useState<number>(0);
+  const navigate = useNavigate();
   const time = new Date();
   time.setSeconds(time.getSeconds() + 20);
 
@@ -30,13 +30,13 @@ export function PlayGround(props: { game: string }) {
 
   const FinishGame = () => {
     SaveResult();
-    router.push(`/score-board/${choosenGame}`);
+    navigate(`/score-board/${choosenGame}`);
   };
 
   const SaveResult = () => {
     const highScore: number =
       localStorage.getItem(`highScore${choosenGame}`) !== null
-        ? parseInt(localStorage.getItem(`highScore${choosenGame}`))
+        ? parseInt(localStorage.getItem(`highScore${choosenGame}`) ?? "0")
         : 0;
 
     localStorage.setItem(`currentScore${choosenGame}`, `${score}`);
@@ -56,7 +56,7 @@ export function PlayGround(props: { game: string }) {
         return (
           <HighOrLow
             count={60}
-            checkAnswer={checkAnswer}
+            CheckAnswer={checkAnswer}
             AnswerResult={AnswerResult}
           />
         );
@@ -64,7 +64,7 @@ export function PlayGround(props: { game: string }) {
         return (
           <FlickMaster
             count={60}
-            checkAnswer={checkAnswer}
+            CheckAnswer={checkAnswer}
             AnswerResult={AnswerResult}
           />
         );
@@ -72,7 +72,7 @@ export function PlayGround(props: { game: string }) {
         return (
           <FollowTheLeader
             count={60}
-            checkAnswer={checkAnswer}
+            CheckAnswer={checkAnswer}
             AnswerResult={AnswerResult}
           />
         );
@@ -80,7 +80,7 @@ export function PlayGround(props: { game: string }) {
         return (
           <UnfollowTheLeader
             count={60}
-            checkAnswer={checkAnswer}
+            CheckAnswer={checkAnswer}
             AnswerResult={AnswerResult}
           />
         );

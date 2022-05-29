@@ -1,12 +1,11 @@
-import Image from "next/image";
 import style from "./Help.module.scss";
 
 export default function Help() {
   return (
     <div className={style.container}>
       <div className={style.section}>
-        <Image
-          src={"/icons/FlickMaster.png"}
+        <img
+          src={`${process.env.REACT_APP_DOMAIN}/icons/FlickMaster.png`}
           width={100}
           height={100}
           alt="flickmaster"
@@ -20,8 +19,8 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
-          src={"/icons/HighOrLow.png"}
+        <img
+          src={`${process.env.REACT_APP_DOMAIN}/icons/HighOrLow.png`}
           width={100}
           height={100}
           alt="highorlow"
@@ -34,8 +33,8 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
-          src={"/icons/FollowTheLeader.png"}
+        <img
+          src={`${process.env.REACT_APP_DOMAIN}/icons/FollowTheLeader.png`}
           width={100}
           height={100}
           alt="followtheleader"
@@ -46,8 +45,8 @@ export default function Help() {
         </figure>
       </div>
       <div className={style.section}>
-        <Image
-          src={"/icons/UnfollowTheLeader.png"}
+        <img
+          src={`${process.env.REACT_APP_DOMAIN}/icons/UnfollowTheLeader.png`}
           width={100}
           height={100}
           alt="unfollowtheleader"

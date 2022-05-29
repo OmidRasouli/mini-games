@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import style from "./Sad.module.scss";
 
 export function Sad() {
@@ -10,7 +10,7 @@ export function Sad() {
           <div></div>
         </div>
         <div className={style.mouth}>
-          <Link href="/">
+          <Link to={`/`}>
             <a>Let&apos;s play</a>
           </Link>
         </div>

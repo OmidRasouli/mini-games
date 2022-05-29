@@ -1,0 +1,24 @@
+.details {
+  width: 100%;
+  max-width: 400px;
+  padding-top: 80px;
+  & > * {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 3em;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  .description {
+    font-size: 1.3em;
+    font-weight: 500;
+    .social {
+      margin: 0 5px -5px;
+    }
+  }
+}

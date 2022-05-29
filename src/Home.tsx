@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home/Home";
-import { Menu } from "./components/Menu/Menu";
+import Menu from "./pages/menu";
+import About from "./pages/about";
 import NavBar from "./components/NavBar/NavBar";
 import "./Home.scss";
 import HelpPage from "./pages/help";
@@ -27,6 +28,9 @@ function HomePage() {
         </Routes>
         <Routes>
           <Route path="/help" element={<HelpPage />} />
+        </Routes>
+        <Routes>
+          <Route path="/about" element={<About />} />
         </Routes>
         <Routes>
           <Route path="/quit" element={<Quit />} />

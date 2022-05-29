@@ -5,7 +5,7 @@ export default function Help() {
     <div className={style.container}>
       <div className={style.section}>
         <img
-          src={"/icons/FlickMaster.png"}
+          src={`${process.env.REACT_APP_DOMAIN}/icons/FlickMaster.png`}
           width={100}
           height={100}
           alt="flickmaster"
@@ -20,7 +20,7 @@ export default function Help() {
       </div>
       <div className={style.section}>
         <img
-          src={"/icons/HighOrLow.png"}
+          src={`${process.env.REACT_APP_DOMAIN}/icons/HighOrLow.png`}
           width={100}
           height={100}
           alt="highorlow"
@@ -34,7 +34,7 @@ export default function Help() {
       </div>
       <div className={style.section}>
         <img
-          src={"/icons/FollowTheLeader.png"}
+          src={`${process.env.REACT_APP_DOMAIN}/icons/FollowTheLeader.png`}
           width={100}
           height={100}
           alt="followtheleader"
@@ -46,7 +46,7 @@ export default function Help() {
       </div>
       <div className={style.section}>
         <img
-          src={"/icons/UnfollowTheLeader.png"}
+          src={`${process.env.REACT_APP_DOMAIN}/icons/UnfollowTheLeader.png`}
           width={100}
           height={100}
           alt="unfollowtheleader"

@@ -10,7 +10,7 @@ export function Sad() {
           <div></div>
         </div>
         <div className={style.mouth}>
-          <Link to="/">
+          <Link to={`/`}>
             <a>Let&apos;s play</a>
           </Link>
         </div>

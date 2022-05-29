@@ -9,28 +9,28 @@ export function Menu() {
       name: "Flick Master",
       id: "FlickMaster",
       class: "flickMaster",
-      img: "/icons/FlickMaster.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/FlickMaster.png`,
     },
     {
       key: "ftl",
       name: "Follow The Leader",
       id: "FollowTheLeader",
       class: "followTheLeader",
-      img: "/icons/FollowTheLeader.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/FollowTheLeader.png`,
     },
     {
       key: "hol",
       name: "High or Low",
       id: "HighOrLow",
       class: "highOrLow",
-      img: "/icons/HighOrLow.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/HighOrLow.png`,
     },
     {
       key: "uftl",
       name: "Unfollow the Leader",
       id: "UnfollowTheLeader",
       class: "unfollowTheLeader",
-      img: "/icons/UnfollowTheLeader.png",
+      img: `${process.env.REACT_APP_DOMAIN}/icons/UnfollowTheLeader.png`,
     },
   ];
 

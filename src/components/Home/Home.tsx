@@ -24,7 +24,7 @@ export function Home() {
           initial={{ x: -40, opacity: 0 }}
           transition={{ duration: 0.1, ease: "easeInOut", delay: 0.5 }}
         >
-          <Link to={"/menu"}>Play</Link>
+          <Link to={`/menu`}>Play</Link>
         </motion.div>
         <motion.div
           className={style.button}
@@ -32,7 +32,7 @@ export function Home() {
           initial={{ x: 40, opacity: 0 }}
           transition={{ duration: 0.1, ease: "easeInOut", delay: 0.6 }}
         >
-          <Link to={"/help"}>Help</Link>
+          <Link to={`/help`}>Help</Link>
         </motion.div>
         <motion.div
           className={style.button}
@@ -40,7 +40,7 @@ export function Home() {
           initial={{ x: -40, opacity: 0 }}
           transition={{ duration: 0.1, ease: "easeInOut", delay: 0.7 }}
         >
-          <Link to={"/about"}>About</Link>
+          <Link to={`/about`}>About</Link>
         </motion.div>
         <motion.div
           className={style.button}
@@ -48,7 +48,7 @@ export function Home() {
           initial={{ x: 40, opacity: 0 }}
           transition={{ duration: 0.1, ease: "easeInOut", delay: 0.8 }}
         >
-          <Link to={"/quit"}>Quit</Link>
+          <Link to={`/quit`}>Quit</Link>
         </motion.div>
       </div>
     </div>

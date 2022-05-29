@@ -5,7 +5,7 @@ import style from "./NavBar.module.scss";
 export default function NavBar() {
   return (
     <nav className={style.navBar}>
-      <Link to={"/"}>
+      <Link to={`/`}>
         <FaHome />
         <span>Home</span>
       </Link>

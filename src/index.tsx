@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/demo/mini-games">
       <Home />
     </BrowserRouter>
   </React.StrictMode>
